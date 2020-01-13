@@ -63,13 +63,22 @@ class Node:
 # function should return the diameter of the tree
 
 
+def height(root, ans):
+    if root == None:
+        return 0
+
+    lh = height(root.left, ans)
+    rh = height(root.right, ans)
+
+    ans[0] = max(ans[0], 1 + lh + rh)
+    return 1 + max(lh, rh)
+
+
 def diameter(root):
     # Code here
+    if root == None:
+        return 0;
 
-    if root is None:
-        return
-
-    if root.left is None:
-        return
-
-    return max(diameter(root.left), diameter(root.right))
+    ans = [-999999999999]
+    he = height(root, ans)
+    return ans[0]
