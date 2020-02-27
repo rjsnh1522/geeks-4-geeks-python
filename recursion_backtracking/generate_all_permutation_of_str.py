@@ -3,12 +3,13 @@ def generate_permutation(string, start, end, results):
     if len(string) == 0:
         return
     if start == end - 1:
-        if not string in results:
+        if string not in results:
             results.append("".join(string))
     else:
         for current in range(start, end):
             string[start], string[current] = string[current], string[start]
-            generate_permutation(string, start + 1, end, results)
+            if "".join(string) not in results:
+                generate_permutation(string, start + 1, end, results)
             string[start], string[current] = string[current], string[start]
 
 
