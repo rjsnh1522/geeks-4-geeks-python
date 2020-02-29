@@ -21,5 +21,5 @@ def solution(string, index, n):
             string[index], string[i] = string[i], string[index]
 
 
-string = list("AAB")
+string = list("AB")
 solution(string, 0, len(string))
