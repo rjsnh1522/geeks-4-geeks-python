@@ -25,7 +25,7 @@ class Solution:
             for j in range(len(arr[i])):
                 prefix_str = arr[i][: (j + 1)]
                 if prefix_str in hash_table and i != hash_table[prefix_str]:
-                    remaining_str = arr[i][(j + 1) :]
+                    remaining_str = arr[i][(j + 1):]
                     if self.check_palindrome(remaining_str):
                         self.result.append([i, hash_table[prefix_str]])
                 suffix_str = arr[i][-(j + 1):]
