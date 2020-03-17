@@ -1,7 +1,19 @@
-class Solve:
+# class Solve:
+#
+#     def __init__(self):
+#         self.string = ''
+#
+#     def solve(self, char):
+#         pass
+from collections import OrderedDict
 
-    def __init__(self):
-        self.string = ''
+st = ["shivesh", "bhavesh", "ramesh", "suresh", "dddddddddddd"]
+dd = dict()
+k = 9
+for i,j in enumerate(st):
+    dd[j] = k
+    k-=1
 
-    def solve(self, char):
-        pass
+for k,v in dd.items():
+    print(k, v)
+
