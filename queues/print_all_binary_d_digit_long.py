@@ -5,12 +5,13 @@ def print_binary(d):
     i = 0
     while len(queue) > 0:
         ele = queue.pop(0)
+        if len(str(ele)) > d:
+            break
         print(ele)
         for k in [0, 1]:
             num = f"{ele}{k}"
             queue.append(int(num))
-        if i > (d+2):
-            break
+
         i += 1
 
-print_binary(4)
+print_binary(3)
