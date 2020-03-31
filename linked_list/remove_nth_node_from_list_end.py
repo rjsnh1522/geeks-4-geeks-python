@@ -1,4 +1,5 @@
 # Definition for singly-linked list.
+# TODO its working
 class ListNode:
     def __init__(self, x):
         self.val = x
@@ -10,15 +11,27 @@ class Solution:
         tortoise = A
         hare = A
         prev = None
-        head = A
-        for i in range((B-1)):
+        head = None
+        len = 0
+        while A is not None:
+            A = A.next
+            len += 1
+        if B > len:
+            B = len
+        for i in range(len-(B)):
             hare = hare.next
-        while hare.next is not None:
-            prev = tortoise
-            tortoise = tortoise.next
-            hare = hare.next
-        nextr = tortoise.next
-        prev.next = nextr
+
+        while tortoise is not None:
+            if hare == tortoise:
+                if prev is None:
+                    prev = tortoise
+                prev.next = tortoise.next
+                tortoise = tortoise.next
+            else:
+                prev = tortoise
+                tortoise = tortoise.next
+                if head is None:
+                    head = prev
         return head
 # 1 2 3 4 5 6 7 8 9 10---> 5
 #
@@ -46,7 +59,7 @@ a_28.next = a_57
 a_57.next = a_93
 
 sol = Solution()
-header = sol.removeNthFromEnd(a_14, 2)
+header = sol.removeNthFromEnd(a_14, 10)
 while header is not None:
     print(header.val)
     header = header.next
