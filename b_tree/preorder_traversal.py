@@ -12,6 +12,8 @@ class Solution:
     # pre order traversal is N L R
     def pre_order_traversal(self, A):
         current = A
+        if not current:
+            return []
         stack = []
         anser = []
         stack.append(current)
