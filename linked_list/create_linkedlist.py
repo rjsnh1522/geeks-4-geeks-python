@@ -1,14 +1,39 @@
-class ListNode:
-    def __init__(self, x):
-        self.val = x
+class Node:
+    def __init__(self, data):
+        self.data = data
         self.next = None
 
 
-def insert_node(position, val):
-    pass
+class ListNode:
+    def __init__(self, r):
+        self.root = r
+        self.size = 0
+        self.current = self.root
 
-def delete_node(position):
-    pass
+    def insert_node(self, val):
+        new_node = Node(val)
+        self.current.next = new_node
+        self.current = new_node
+        self.size += 1
 
-def print_ll():
-    pass
+    def delete_node(self, val):
+        current = self.root
+        prev_node = None
+        while current:
+            if current.data == val:
+                if prev_node is not None:
+                    prev_node.next = current.next
+                else:
+                    self.root = current.next
+                self.size -=1
+                return True
+            else:
+                prev_node = current
+                current = current.next
+        return False
+
+    def print_ll(self):
+        temp = self.head
+        while temp:
+            print(temp.data)
+            temp = temp.next
